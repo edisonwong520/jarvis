@@ -52,7 +52,9 @@ def download(single_info, down_path):
 def get_key():
     uin = '1008611'
     guid = '1234567890'
-    getVkeyUrl = 'https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=0&loginUin={uin}&hostUin=0&format=json&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&cid=205361747&uin={uin}&songmid=003a1tne1nSz1Y&filename=C400003a1tne1nSz1Y.m4a&guid={guid}'
+    getVkeyUrl = 'https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=0&loginUin={uin}&hostUin=0&format=' \
+                 'json&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&cid=205361747&uin={uin}&songmid=' \
+                 '003a1tne1nSz1Y&filename=C400003a1tne1nSz1Y.m4a&guid={guid}'
     url = getVkeyUrl.format(uin=uin, guid=guid)
     try:
         r = requests.get(url, headers=headers)
@@ -76,7 +78,9 @@ def get_link(media_mid, vkey):
 
 
 def get_single_info(songmid, vkey, do=True):
-    info_url = 'https://c.y.qq.com/v8/fcg-bin/fcg_play_single_song.fcg?songmid={songmid}&tpl=yqq_song_detail&format=json&callback=getOneSongInfoCallback&g_tk=5381&jsonCallback=getOneSongInfoCallback&loginUin=0&hostUin=0&format=json&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0'
+    info_url = 'https://c.y.qq.com/v8/fcg-bin/fcg_play_single_song.fcg?songmid={songmid}&tpl=yqq_song_detail&format=json' \
+               '&callback=getOneSongInfoCallback&g_tk=5381&jsonCallback=getOneSongInfoCallback&loginUin=0&hostUin=0&format' \
+               '=json&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0'
     url = info_url.format(songmid=songmid)
     try:
         r = requests.get(url=url, headers=headers)

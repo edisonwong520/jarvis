@@ -6,6 +6,7 @@ class Platform:
     def __init__(self):
         self.plugin_list = self.get_all_plugin()
 
+
     def load_plugins(self, name, args):
 
         for filename in self.plugin_list:

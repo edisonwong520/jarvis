@@ -10,6 +10,39 @@ def word_parse(data):
         return parse_song(data)
     if parse_weather(data):
         return parse_weather(data)
+    if parse_ditu(data):
+        return parse_ditu(data)
+
+
+def parse_ditu(data):
+    bus = ["公交", "巴士"]
+    walk = ["走路", "走", "行"]
+    car = ["车"]
+    flag = False
+    if "从" in data and "到" in data:
+        flag = True
+    if not flag:
+        return ()
+
+    # set the default traffic type
+    traffic_type = "car"
+
+    for item in bus:
+        if item in data:
+            traffic_type = "bus"
+    for item in walk:
+        if item in data:
+            traffic_type = "walk"
+    for item in car:
+        if item in data:
+            traffic_type = "car"
+
+    st = data.index("从")
+    des = data.index("到")
+    sp_location = data[st + 1:des]
+    des_location = data[des + 1:]
+
+    return ("gaodeditu", (sp_location, des_location, traffic_type))
 
 
 def parse_song(data):
@@ -75,4 +108,4 @@ def parse_calculator(data):
     data = data.replace("加", "+").replace("减", "-").replace("乘", "*").replace("除", "/")
     data = data.replace("一", "1").replace("二", "2").replace("三", "3").replace("四", "4").replace("五", "5")
     data = data.replace("六", "6").replace("七", "7").replace("八", "8").replace("九", "9").replace("零", "0")
-    return ("calculator",(data,))
+    return ("calculator", (data,))

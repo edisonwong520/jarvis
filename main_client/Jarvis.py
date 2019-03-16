@@ -45,12 +45,12 @@ class Jarvis():
         #     cmdclient.onecmd("me")
 
         # speack recognize
-        result=["放一首k歌之王"]
-        # result = Audio.listen()
-        if result:
-            print("识别的语句是:" + result[0])
 
-        # result = ['1乘2+3']
+        result = Audio.listen()
+        if result:
+            print("识别结果:" + result[0])
+
+        # result = ['开车从吉林大学到龙嘉机场']
 
         word = WordParse.word_parse(result[0])
         # word[1] is a tuple
