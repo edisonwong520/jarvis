@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 download/
 dependencies/
-p.txt
+p.json
 # C extensions
 *.so
 .DS_Store
