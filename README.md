@@ -1,7 +1,7 @@
 ## 简介
 中文版贾维斯语音助手（Jarvis 可以语音控制/自动播放下载音乐/天气播报/问路导航）  
 通过语音控制贾维斯干活  
-Jarvis————A very intelligent assistant based speech-recognition  
+Jarvis--A very intelligent assistant based voice control 
 
 
 ## 已实现的功能 (Aleady Completed)
