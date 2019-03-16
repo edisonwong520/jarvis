@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 download/
+dependencies/
 p.txt
 # C extensions
 *.so
