@@ -4,15 +4,26 @@ import re
 
 
 def word_parse(data):
-    if parse_calculator(data):
-        return parse_calculator(data)
+    mark = parse_calculator(data)
+    if mark:
+        return mark
+
     # parse_song support fuzzy search
-    if parse_song(data):
-        return parse_song(data)
-    if parse_weather(data):
-        return parse_weather(data)
-    if parse_ditu(data):
-        return parse_ditu(data)
+    mark = parse_song(data)
+    if mark:
+        return mark
+
+    mark = parse_weather(data)
+    if mark:
+        return mark
+
+    mark = parse_ditu(data)
+    if mark:
+        return mark
+
+    mark = parse_baidusearch(data)
+    if mark:
+        return mark
 
 
 def parse_ditu(data):
@@ -57,12 +68,12 @@ def parse_ditu(data):
     des_str = des_str.replace("怎么去", "")
     des_location = des_str
 
-    #judge the arg2
+    # judge the arg2
     for item in bus:
         if item in des_str:
             traffic_type = "bus"
-            n=des_str.index(item)
-            des_location=des_str[:n]
+            n = des_str.index(item)
+            des_location = des_str[:n]
             break
     for item in walk:
         if item in des_str:
@@ -76,7 +87,6 @@ def parse_ditu(data):
             n = des_str.index(item)
             des_location = des_str[:n]
             break
-
 
     return ("gaodeditu", (sp_location, des_location, traffic_type))
 
@@ -146,3 +156,15 @@ def parse_calculator(data):
     data = data.replace("六", "6").replace("七", "7").replace("八", "8").replace("九", "9").replace("零", "0")
     return ("calculator", (data,))
 
+
+def parse_baidusearch(data):
+    str = data
+    flag = False
+    if "百度" in data:
+        flag = True
+    if not flag:
+        return ()
+    key = ["搜", "搜索", "百度", "百度一下"]
+    for item in key:
+        str = str.replace(item, "")
+    return ("baidusearch", (str,))

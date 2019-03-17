@@ -1,5 +1,6 @@
-from selenium import webdriver
+import os
 
-driver = webdriver.Chrome()
-base_url = 'https://www.baidu.com'
-driver.get(base_url)
+cur_path_list = os.getcwd().split("/")[:-1]
+cur_path = "/".join(cur_path_list) + "/dependencies/chromedriver/chromedriver"
+
+print(cur_path)

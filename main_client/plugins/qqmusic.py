@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
-from selenium import webdriver
-from selenium.webdriver import ChromeOptions
 import os
-import time
 import urllib.request
-# import datetime
+import time
 import urllib.parse
 from urllib.parse import quote
 import string
@@ -38,20 +35,20 @@ def get_version_mac():
     return version
 
 
-def open_music(url):
-    cur_path_list = os.getcwd().split("/")[:-1]
-    cur_path = "/".join(cur_path_list) + "/dependencies/chromedriver/chromedriver"
-
-    """mac下手动填写Chrome位置"""
-
-    opts = ChromeOptions()
-    opts.add_experimental_option("detach", True)
-
-    driver = webdriver.Chrome(executable_path=cur_path, options=opts)
-    driver.get(url)
-    time.sleep(1)
-
-    return driver
+# def open_music(url):
+#     cur_path_list = os.getcwd().split("/")[:-1]
+#     cur_path = "/".join(cur_path_list) + "/dependencies/chromedriver/chromedriver"
+#
+#     """mac下手动填写Chrome位置"""
+#
+#     opts = ChromeOptions()
+#     opts.add_experimental_option("detach", True)
+#
+#     driver = webdriver.Chrome(executable_path=cur_path, options=opts)
+#     driver.get(url)
+#     time.sleep(1)
+#
+#     return driver
 
 
 # mac chrome driver 驱动下载
@@ -79,7 +76,6 @@ def dl_driver_mac():
     cur_path_list = os.getcwd().split("/")[:-1]
     cur_path = "/".join(cur_path_list) + "/dependencies/chromedriver"
 
-
     """http://npm.taobao.org/mirrors/chromedriver/72.0.3626.69/chromedriver_mac64.zip"""
     print("--------------正在下载驱动--------------")
     # create the dir
@@ -92,7 +88,7 @@ def dl_driver_mac():
     print("\n--------------驱动解压成功--------------")
 
 
-def run(args):
+def run(driver, args):
     songname = args[0]
 
     cur_path_list = os.getcwd().split("/")[:-1]
@@ -118,6 +114,8 @@ def run(args):
     os.system("say '正在为您播放'")
     song_url = "https://y.qq.com/n/yqq/song/{0}.html".format(song_id)
 
-    driver = open_music(song_url)
+    driver.open_website(song_url)
+
     # driver.get("https://y.qq.com/portal/player.html")
-    driver.find_element_by_class_name("mod_btn_green__icon_play").click()
+    time.sleep(0.5)
+    driver.find_element_by_class_name("mod_btn_green__icon_play")

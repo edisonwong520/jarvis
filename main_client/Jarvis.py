@@ -4,13 +4,16 @@ from CmdInter import CmdClient
 import Audio
 import PluginsManager
 import WordParse
+import Chrome
 
 
 class Jarvis():
     def __init__(self):
 
         self.pm = PluginsManager.Platform()
+
         self.action_list = self.pm.get_all_plugin()
+        self.driver = Chrome.Chrome()
 
     # def run(self):
     #     try:
@@ -46,23 +49,19 @@ class Jarvis():
 
         # speack recognize
 
-        result = Audio.listen()
-        if result:
-            print("识别结果:" + result[0])
-
-        # result = ['开车从吉林大学到龙嘉机场']
-
+        # result = Audio.listen()
+        result=["来一首易燃易爆炸"]
         word = WordParse.word_parse(result[0])
-        # word[1] is a tuple
-        self.findAction(word[0], word[1])
 
-    def findAction(self, keyword, args):
+        # word[1] is a tuple
+        self.findAction(self.driver, word[0], word[1])
+
+    def findAction(self, driver, keyword, args):
         if keyword not in self.action_list:
             print("Sorry,I don't understannd your command")
 
         else:
-
-            plugin = self.pm.load_plugins(keyword, args)
+            plugin = self.pm.load_plugins(driver, keyword, args)
 
     def getAllAct(self):
         pass

@@ -7,7 +7,7 @@ class Platform:
         self.plugin_list = self.get_all_plugin()
 
 
-    def load_plugins(self, name, args):
+    def load_plugins(self,driver, name, args):
 
         for filename in self.plugin_list:
             if filename == name:
@@ -20,7 +20,7 @@ class Platform:
                     # Errors may be occured. Handle it yourself.
                     print("load plugin name:" + name)
 
-                    plugin.run(args)
+                    plugin.run(driver,args)
 
                 except Exception as e:
                     print("Error!" + str(e))

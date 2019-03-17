@@ -49,11 +49,12 @@ def listen():
     result = client.asr(getFileContent(input_filename), 'pcm', 16000, {
         'dev_pid': 1536,
     })
-    print(result)
+    # print(result)
     if result["err_no"] != 0:
         print("语音识别失败,错误码{}".format(result['err_no']))
         return []
     else:
+        print("识别结果:" + result["result"][0])
         return result["result"]
 
 

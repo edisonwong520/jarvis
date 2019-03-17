@@ -2,7 +2,6 @@ from urllib import parse
 import urllib.request
 import string
 import re
-from plugins import chrome
 import os
 
 
@@ -33,6 +32,5 @@ def run(args):
                                                     des_location.replace(",", "%2C"))
 
     url_str = parse.quote_plus(url, safe=string.printable)
-    driver = chrome.get_browser()
-    driver.get(url_str)
+    os.system("""open -a "Google Chrome" "{}" """.format(url_str))
     os.system("say '正在为 您显示路线'")
