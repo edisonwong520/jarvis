@@ -5,6 +5,7 @@ import Audio
 import PluginsManager
 import WordParse
 import Chrome
+import Safari
 
 
 class Jarvis():
@@ -13,7 +14,7 @@ class Jarvis():
         self.pm = PluginsManager.Platform()
 
         self.action_list = self.pm.get_all_plugin()
-        self.driver = Chrome.Chrome()
+        self.driver = Chrome.Chrome
 
     # def run(self):
     #     try:
