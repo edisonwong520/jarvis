@@ -86,7 +86,7 @@ class Chrome():
         cur_path = "/".join(cur_path_list) + "/config/"
         cmd = '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-' \
               'dir="{}" '.format(cur_path)
-        subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        subprocess.Popen(cmd, shell=True)
 
         chrome_options = Options()
         chrome_options.debugger_address = "127.0.0.1:9222"

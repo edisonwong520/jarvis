@@ -14,7 +14,7 @@ class Jarvis():
         self.pm = PluginsManager.Platform()
 
         self.action_list = self.pm.get_all_plugin()
-        self.driver = Chrome.Chrome
+        self.driver = Chrome.Chrome()
 
     # def run(self):
     #     try:
@@ -50,10 +50,9 @@ class Jarvis():
 
         # speack recognize
 
-        # result = Audio.listen()
-        result=["百度搜AA"]
+        result = Audio.listen()
+        # result = ["放一首歌"]
         word = WordParse.word_parse(result[0])
-
         # word[1] is a tuple
         self.findAction(self.driver, word[0], word[1])
 
