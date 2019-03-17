@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime
+import re
 
 
 def word_parse(data):
@@ -16,10 +17,18 @@ def word_parse(data):
 
 def parse_ditu(data):
     bus = ["公交", "巴士"]
-    walk = ["走路", "走", "行"]
-    car = ["车"]
+    walk = ["走路", "走路", "步行", "走"]
+    car = ["开车", "坐车"]
     flag = False
-    if "从" in data and "到" in data:
+
+    pat = re.compile(r"(.*?)从(.*)到(.*)")
+    arg0 = pat.findall(data)[0][0]
+    arg1 = pat.findall(data)[0][1]
+    arg2 = pat.findall(data)[0][2]
+
+    # usually the result is ('', '大学', '机场开车怎么走') so just judge the arg1 and arg2
+
+    if len(arg1) != 0 and len(arg2) != 0:
         flag = True
     if not flag:
         return ()
@@ -27,20 +36,47 @@ def parse_ditu(data):
     # set the default traffic type
     traffic_type = "car"
 
+    # judge the arg0
     for item in bus:
-        if item in data:
+        if item in arg0:
             traffic_type = "bus"
+            break
     for item in walk:
-        if item in data:
+        if item in arg0:
             traffic_type = "walk"
+            break
     for item in car:
-        if item in data:
+        if item in arg0:
             traffic_type = "car"
+            break
 
-    st = data.index("从")
-    des = data.index("到")
-    sp_location = data[st + 1:des]
-    des_location = data[des + 1:]
+    sp_location = arg1
+
+    des_str = arg2
+    des_str = des_str.replace("怎么走", "")
+    des_str = des_str.replace("怎么去", "")
+    des_location = des_str
+
+    #judge the arg2
+    for item in bus:
+        if item in des_str:
+            traffic_type = "bus"
+            n=des_str.index(item)
+            des_location=des_str[:n]
+            break
+    for item in walk:
+        if item in des_str:
+            traffic_type = "walk"
+            n = des_str.index(item)
+            des_location = des_str[:n]
+            break
+    for item in car:
+        if item in des_str:
+            traffic_type = "car"
+            n = des_str.index(item)
+            des_location = des_str[:n]
+            break
+
 
     return ("gaodeditu", (sp_location, des_location, traffic_type))
 
@@ -109,3 +145,4 @@ def parse_calculator(data):
     data = data.replace("一", "1").replace("二", "2").replace("三", "3").replace("四", "4").replace("五", "5")
     data = data.replace("六", "6").replace("七", "7").replace("八", "8").replace("九", "9").replace("零", "0")
     return ("calculator", (data,))
+

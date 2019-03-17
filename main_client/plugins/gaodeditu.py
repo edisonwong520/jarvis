@@ -9,9 +9,7 @@ import os
 def run(args):
     sp = args[0]
     des = args[1]
-    traffic_type=args[2]
-    # sp = "吉林大学"
-    # des = "龙嘉机场"
+    traffic_type = args[2]
 
     # find starting point  longitude and latitude data
     url = "https://restapi.amap.com/v3/place/text?s=rsv3&children=&key=8325164e247e15eea68b59e89200988b&page=1&offset=10" \
@@ -30,9 +28,9 @@ def run(args):
     pat = re.compile(r'"location":"(.+?)"')
     des_location = pat.search(data).group(1)
 
-
     url = "https://ditu.amap.com/dir?type={}&policy=2&from[lnglat]={}&from[name]=startpoint&to[lnglat]={}&to[name]=" \
-          "endpoint&src=mypage&callnative=0".format(traffic_type,sp_location.replace(",", "%2C"), des_location.replace(",", "%2C"))
+          "endpoint&src=mypage&callnative=0".format(traffic_type, sp_location.replace(",", "%2C"),
+                                                    des_location.replace(",", "%2C"))
 
     url_str = parse.quote_plus(url, safe=string.printable)
     driver = chrome.get_browser()
