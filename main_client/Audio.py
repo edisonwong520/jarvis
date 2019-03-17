@@ -25,7 +25,8 @@ def getAudio():
 
     with sr.Microphone() as source:
         r.adjust_for_ambient_noise(source)
-        print("Say something!")
+        os.system("say '请问我能帮您做些什么？'")
+        print("What can I do for you!")
         audio = r.listen(source)
 
         with open(file_location + "input.wav", "wb") as f:
@@ -46,9 +47,11 @@ def listen():
     # get the audio
     getAudio()
 
+    os.system("say '正在识别中'")
     result = client.asr(getFileContent(input_filename), 'pcm', 16000, {
         'dev_pid': 1536,
     })
+
     # print(result)
     if result["err_no"] != 0:
         print("语音识别失败,错误码{}".format(result['err_no']))

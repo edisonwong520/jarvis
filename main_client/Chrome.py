@@ -87,12 +87,14 @@ class Chrome():
         cmd = '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-' \
               'dir="{}" '.format(cur_path)
         subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+
         chrome_options = Options()
         chrome_options.debugger_address = "127.0.0.1:9222"
 
         cur_path_list = os.getcwd().split("/")[:-1]
         cur_path = "/".join(cur_path_list) + "/dependencies/chromedriver/chromedriver"
 
-        # chrome_driver = "/Users/edison/PycharmProjects/Jarvis/dependencies/chromedriver/chromedriver"
         driver = webdriver.Chrome(cur_path, options=chrome_options)
+        cmd = """ osascript -e 'tell application "System Events" to keystroke "h" using {command down}' """
+        os.system(cmd)
         return driver

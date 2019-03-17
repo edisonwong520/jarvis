@@ -4,6 +4,7 @@ import re
 
 
 def word_parse(data):
+    data=data.replace("贾维斯","")
     mark = parse_calculator(data)
     if mark:
         return mark
@@ -33,6 +34,10 @@ def parse_ditu(data):
     flag = False
 
     pat = re.compile(r"(.*?)从(.*)到(.*)")
+
+    #quit
+    if not pat.findall(data):
+        return
     arg0 = pat.findall(data)[0][0]
     arg1 = pat.findall(data)[0][1]
     arg2 = pat.findall(data)[0][2]

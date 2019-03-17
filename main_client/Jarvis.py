@@ -50,7 +50,7 @@ class Jarvis():
         # speack recognize
 
         # result = Audio.listen()
-        result=["来一首易燃易爆炸"]
+        result=["百度搜AA"]
         word = WordParse.word_parse(result[0])
 
         # word[1] is a tuple

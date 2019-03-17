@@ -101,9 +101,9 @@ def get_single_info(songmid, vkey, do=True):
             link_info[size_list[i]] = {'size': s, 'link': song_link[i]}
         single_info['link_info'] = link_info
 
-        down_path_list = os.getcwd().split("/")[:-2]
-        down_path = "/".join(down_path_list) + "/download/songs"
-        print(down_path)
+        cur_path_list = os.getcwd().split("/")[:-1]
+        down_path = "/".join(cur_path_list) + "/download/songs"
+        print("下载地址为："+down_path)
         os.system("mkdir -p {}".format(down_path))
 
         try:
@@ -119,7 +119,7 @@ def get_single_info(songmid, vkey, do=True):
     return None
 
 
-def run(args):
+def run(driver,args):
     songname = args[0]
     url = "https://c.y.qq.com/soso/fcgi-bin/client_search_cp?&lossless=0&flag_qc=0&p=1&n=20&w={0}".format(songname)
     s = quote(url, safe=string.printable)

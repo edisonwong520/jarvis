@@ -1,6 +1,6 @@
-import os
-
-cur_path_list = os.getcwd().split("/")[:-1]
-cur_path = "/".join(cur_path_list) + "/dependencies/chromedriver/chromedriver"
-
-print(cur_path)
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+driver = webdriver.Safari()
+driver.get("http://www.baidu.com")
+driver.get("http://www.weibo.com")

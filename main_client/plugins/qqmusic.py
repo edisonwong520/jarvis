@@ -16,18 +16,6 @@ driver_version = {"69": "2.41", "68": "2.40", "67": "2.40", "66": "2.40", "65": 
                   "44": "2.19", "43": "2.17", "42": "2.15", "41": "2.13", "40": "2.12"}
 
 
-# 时间计时
-# def time_count(func):
-#     def int_time(*args, **kwargs):
-#         start_time = datetime.datetime.now()  # 程序开始时间
-#         func(*args, **kwargs)
-#         over_time = datetime.datetime.now()  # 程序结束时间
-#         total_time = (over_time - start_time).total_seconds()
-#         print('----------本程序共运行了%s秒----------' % total_time)
-#
-#     return int_time
-
-
 def get_version_mac():
     cmd = r'/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version'
     re = os.popen(cmd).read().strip()
@@ -35,24 +23,9 @@ def get_version_mac():
     return version
 
 
-# def open_music(url):
-#     cur_path_list = os.getcwd().split("/")[:-1]
-#     cur_path = "/".join(cur_path_list) + "/dependencies/chromedriver/chromedriver"
-#
-#     """mac下手动填写Chrome位置"""
-#
-#     opts = ChromeOptions()
-#     opts.add_experimental_option("detach", True)
-#
-#     driver = webdriver.Chrome(executable_path=cur_path, options=opts)
-#     driver.get(url)
-#     time.sleep(1)
-#
-#     return driver
-
-
 # mac chrome driver 驱动下载
 def dl_driver_mac():
+    os.system("say '缺少驱动，将为您自动下载驱动'")
     print("--------------缺少驱动，将自动下载驱动--------------")
     request = urllib.request.Request('http://npm.taobao.org/mirrors/chromedriver/')
     response = urllib.request.urlopen(request)
@@ -117,5 +90,5 @@ def run(driver, args):
     driver.open_website(song_url)
 
     # driver.get("https://y.qq.com/portal/player.html")
-    time.sleep(0.5)
+    time.sleep(0.7)
     driver.find_element_by_class_name("mod_btn_green__icon_play")

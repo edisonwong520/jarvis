@@ -10,7 +10,7 @@ Jarvis--A very intelligent assistant based voice control
 - 功能3:天气播报
 - 功能4:计算器
 - 功能5:问路导航  
-- 功能6:百度搜索  
+- 功能6:百度搜索  (未完成)
 其余功能正在开发中，欢迎提建议  
 英文版也许会开发，windows版本的也许也会开发，目前只适配Mac
 

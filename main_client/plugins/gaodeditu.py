@@ -5,7 +5,7 @@ import re
 import os
 
 
-def run(args):
+def run(driver,args):
     sp = args[0]
     des = args[1]
     traffic_type = args[2]
