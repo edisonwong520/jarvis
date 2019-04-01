@@ -11,7 +11,7 @@ Jarvis--A very intelligent assistant based voice control
 - 功能5:问路导航（高德地图）  
 - 功能6:百度搜索  
 - 功能7:计时器功能   
-- 功能8:自动关机,自动重启
+- 功能8:自动关机/重启(也可以自动设定时间)
 
 
 其余功能正在开发中，欢迎提建议  
@@ -30,7 +30,8 @@ Jarvis--A very intelligent assistant based voice control
 然后对着Jarvis发布命令，比如你可以说  
 `贾维斯，来一首易燃易爆炸`  
 `从机场到医院开车怎么走`  
-`计时器1分20秒`
+`计时器1分20秒`  
+`1分20秒后自动重启`
 
 ## 依赖  
 - geoip2

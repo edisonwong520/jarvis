@@ -52,8 +52,8 @@ class Jarvis():
 
         # speack recognize
 
-        # result = Audio.listen()
-        result = ["1分10秒后关机"]
+        result = Audio.listen()
+        # result = ["1分10秒后关机"]
         word = WordParse.word_parse(result[0])
 
         # word[1] is a tuple
