@@ -6,6 +6,8 @@ download/
 dependencies/
 main_client/input_voice/input.wav
 p.json
+main_client/run_bash/*
+test.py
 # C extensions
 *.so
 .DS_Store

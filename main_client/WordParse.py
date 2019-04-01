@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import datetime
 import re
+import json
 
 
+# starting point
 def word_parse(data):
-    data=data.replace("贾维斯","")
+    data = data.replace("贾维斯", "")
     mark = parse_calculator(data)
     if mark:
         return mark
@@ -26,7 +28,12 @@ def word_parse(data):
     if mark:
         return mark
 
+    mark = parse_countdown(data)
+    if mark:
+        return mark
 
+
+# sub parse function is belowed
 def parse_ditu(data):
     bus = ["公交", "巴士"]
     walk = ["走路", "走路", "步行", "走"]
@@ -35,7 +42,7 @@ def parse_ditu(data):
 
     pat = re.compile(r"(.*?)从(.*)到(.*)")
 
-    #quit
+    # quit
     if not pat.findall(data):
         return
     arg0 = pat.findall(data)[0][0]
@@ -173,3 +180,21 @@ def parse_baidusearch(data):
     for item in key:
         str = str.replace(item, "")
     return ("baidusearch", (str,))
+
+
+def parse_countdown(data):
+    if "计时" in data or "倒数" in data:
+        pass
+    else:
+        return ()
+
+    from time_parse import TimeNormalizer
+    tn = TimeNormalizer.TimeNormalizer()
+    time_dict = tn.parse(data)
+    time_dict = json.loads(time_dict)
+    if time_dict and time_dict["type"] == "timedelta":
+        # timedelta is a dict
+        timedelta = time_dict["timedelta"]
+        return ("timer", (timedelta,))
+    else:
+        return ()

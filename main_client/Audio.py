@@ -25,8 +25,8 @@ def getAudio():
 
     with sr.Microphone() as source:
         r.adjust_for_ambient_noise(source)
-        os.system("say '请问我能帮您做些什么？'")
-        print("What can I do for you!")
+        os.system("say '请问我能为您做些什么？'")
+        print("请问我能为您做些什么？")
         audio = r.listen(source)
 
         with open(file_location + "input.wav", "wb") as f:

@@ -5,7 +5,7 @@ import Audio
 import PluginsManager
 import WordParse
 import Chrome
-import Safari
+# import Safari
 
 
 class Jarvis():
@@ -50,9 +50,10 @@ class Jarvis():
 
         # speack recognize
 
-        result = Audio.listen()
-        # result = ["放一首歌"]
+        # result = Audio.listen()
+        result = ["计时1分10秒"]
         word = WordParse.word_parse(result[0])
+
         # word[1] is a tuple
         self.findAction(self.driver, word[0], word[1])
 
