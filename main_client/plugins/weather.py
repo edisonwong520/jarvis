@@ -30,7 +30,7 @@ def time_count(func):
     return int_time
 
 
-def run(driver,args):
+def run(driver, args):
     url = """http://www.ip138.com/ips138.asp?ip={0}&action=2""".format(get_host_ip())
 
     reponse = urllib.request.urlopen(url)
@@ -74,7 +74,12 @@ def run(driver,args):
         else:
             month_str = str(month)
 
-        date = "{}-{}-{}".format(day1.split("-")[0], month_str, day1.split("-")[2])
+        # standard format 2019-04-01
+        if int(day1.split("-")[2])<10:
+            date = "{}-{}-0{}".format(day1.split("-")[0], month_str, day1.split("-")[2])
+        else:
+            date = "{}-{}-{}".format(day1.split("-")[0], month_str, day1.split("-")[2])
+
         weather[date] = day.split("：")[1:][0]
 
     # ----------
@@ -91,5 +96,3 @@ def run(driver,args):
 
     for date in args:
         os.system('say "{}天天气:{}"'.format(days_dict[date], weather[date].replace("～", "至").replace("-", "负")))
-
-# run(('2019-03-16','2019-03-18'))

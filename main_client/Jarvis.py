@@ -53,7 +53,7 @@ class Jarvis():
         # speack recognize
 
         result = Audio.listen()
-        # result = ["1分10秒后关机"]
+        # result = ["今天天气"]
         word = WordParse.word_parse(result[0])
 
         # word[1] is a tuple

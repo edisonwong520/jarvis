@@ -10,7 +10,7 @@ Jarvis--A very intelligent assistant based voice control
 - 功能4:计算器
 - 功能5:问路导航（高德地图）  
 - 功能6:百度搜索  
-- 功能7:计时器功能   
+- 功能7:计时器功能（闹钟） 
 - 功能8:自动关机/重启(也可以自动设定时间)
 
 
