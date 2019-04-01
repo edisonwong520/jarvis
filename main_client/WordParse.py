@@ -32,6 +32,14 @@ def word_parse(data):
     if mark:
         return mark
 
+    mark = parse_shutdown(data)
+    if mark:
+        return mark
+
+    mark = parse_restart(data)
+    if mark:
+        return mark
+
 
 # sub parse function is belowed
 def parse_ditu(data):
@@ -196,5 +204,38 @@ def parse_countdown(data):
         # timedelta is a dict
         timedelta = time_dict["timedelta"]
         return ("timer", (timedelta,))
+    else:
+        return ()
+
+
+def parse_shutdown(data):
+    if "关机" not in data and "关电" not in data:
+        return ()
+    from time_parse import TimeNormalizer
+    tn = TimeNormalizer.TimeNormalizer()
+    time_dict = tn.parse(data)
+    time_dict = json.loads(time_dict)
+    if time_dict and time_dict["type"] == "timedelta":
+        # timedelta is a dict
+        timedelta = time_dict["timedelta"]
+
+        return ("autoshutdown", (timedelta,))
+    else:
+        return ()
+
+
+def parse_restart(data):
+    if "重启" not in data and "重新启动" not in data:
+        return ()
+    from time_parse import TimeNormalizer
+    tn = TimeNormalizer.TimeNormalizer()
+    time_dict = tn.parse(data)
+    time_dict = json.loads(time_dict)
+
+    if time_dict and time_dict["type"] == "timedelta":
+        # timedelta is a dict
+        timedelta = time_dict["timedelta"]
+
+        return ("autorestart", (timedelta,))
     else:
         return ()

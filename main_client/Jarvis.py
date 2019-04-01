@@ -5,6 +5,8 @@ import Audio
 import PluginsManager
 import WordParse
 import Chrome
+
+
 # import Safari
 
 
@@ -51,7 +53,7 @@ class Jarvis():
         # speack recognize
 
         # result = Audio.listen()
-        result = ["计时1分10秒"]
+        result = ["1分10秒后关机"]
         word = WordParse.word_parse(result[0])
 
         # word[1] is a tuple

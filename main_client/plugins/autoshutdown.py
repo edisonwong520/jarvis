@@ -22,8 +22,11 @@ def run(driver, args):
           "sleep 1\n" \
           "seconds_left=$(($seconds_left - 1))\n" \
           "done\n" \
-          "say '您设定的{}计时器时间到了！'".format(sec_count, time_word)
+          "say '您设定的{}自动关机时间到了！正在为您自动关机'\n".format(sec_count, time_word)
+    long_cmd= """osascript -e 'tell app """+r"""\"System Events\" to shut down' """
     os.system("mkdir -p {}".format(bash_path))
-    os.system("echo '{}'>{}timer.sh &&nohup bash {}timer.sh &".format(cmd, bash_path, bash_path))
-    print("计时器设定好了")
-    os.system("say '计时器设定好了' ")
+    os.system("echo '{}'>{}autoshutdown.sh ".format(cmd, bash_path))
+    os.system("""echo "{}">>{}autoshutdown.sh """.format(long_cmd,bash_path))
+    # os.system("nohup bash {}autoshutdown.sh &".format(bash_path))
+    print("自动关机设定好了")
+    os.system("say '自动关机设定好了' ")

@@ -1,5 +1,5 @@
 ## 简介
-中文版贾维斯Jarvis语音助手（电脑加强版Siri，已自动播放下载音乐/天气播报/问路导航/计时器）  
+中文版贾维斯Jarvis语音助手  （电脑加强版Siri，已自动播放下载音乐/天气播报/问路导航/计时器）  
 Jarvis--A very intelligent assistant based voice control
 
 

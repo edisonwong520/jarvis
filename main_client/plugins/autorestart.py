@@ -22,8 +22,11 @@ def run(driver, args):
           "sleep 1\n" \
           "seconds_left=$(($seconds_left - 1))\n" \
           "done\n" \
-          "say '您设定的{}计时器时间到了！'".format(sec_count, time_word)
+          "say '您设定的{}自动重启时间到了！正在为您自动重启'\n".format(sec_count, time_word)
+    long_cmd= """osascript -e 'tell app """+r"""\"System Events\" to restart' """
     os.system("mkdir -p {}".format(bash_path))
-    os.system("echo '{}'>{}timer.sh &&nohup bash {}timer.sh &".format(cmd, bash_path, bash_path))
-    print("计时器设定好了")
-    os.system("say '计时器设定好了' ")
+    os.system("echo '{}'>{}restart.sh ".format(cmd, bash_path))
+    os.system("""echo "{}">>{}autorestart.sh """.format(long_cmd,bash_path))
+    os.system("nohup bash {}autorestart.sh &".format(bash_path))
+    print("自动重启设定好了")
+    os.system("say '自动重启设定好了' ")

@@ -18,7 +18,7 @@ class Platform:
                     plugin = importlib.import_module('plugins.{}'.format(pluginName))
                     # plugin=__import__("plugins."+pluginName, fromlist=[pluginName])
                     # Errors may be occured. Handle it yourself.
-                    print("load plugin name:" + name)
+                    print("正在加载插件:" + name)
 
                     plugin.run(driver,args)
 
