@@ -28,7 +28,7 @@ def word_parse(data):
     if mark:
         return mark
 
-    mark = parse_countdown(data)
+    mark = parse_timer(data)
     if mark:
         return mark
 
@@ -190,10 +190,13 @@ def parse_baidusearch(data):
     return ("baidusearch", (str,))
 
 
-def parse_countdown(data):
-    if "计时" in data or "倒数" in data:
-        pass
-    else:
+def parse_timer(data):
+    flag=False
+    term=["计时","倒数","闹钟"]
+    for i in term:
+        if i in data:
+            flag=True
+    if not flag:
         return ()
 
     from time_parse import TimeNormalizer
