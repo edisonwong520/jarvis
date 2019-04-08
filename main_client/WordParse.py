@@ -8,7 +8,7 @@ func_dict = ["parse_calculator", "parse_song", "parse_weather", "parse_ditu", "p
              "parse_shutdown", "parse_restart"]
 
 
-class Parse():
+class WordParse():
     # start point to parse
     def word_parse(self, data):
         data = data.replace("贾维斯", "")
@@ -145,7 +145,7 @@ class Parse():
         if not flag:
             return ()
 
-        data = data.replace("加", "+").replace("减", "-").replace("乘", "*").replace("除", "/")
+        data = data.replace("加", "+").replace("减", "-").replace("乘", "*").replace("除", "/").replace("等于","")
         data = data.replace("一", "1").replace("二", "2").replace("三", "3").replace("四", "4").replace("五", "5")
         data = data.replace("六", "6").replace("七", "7").replace("八", "8").replace("九", "9").replace("零", "0")
         return ("calculator", (data,))

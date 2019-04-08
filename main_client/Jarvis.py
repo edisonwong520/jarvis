@@ -51,11 +51,10 @@ class Jarvis():
         #     cmdclient.onecmd("me")
 
         # speack recognize
-
-        # result = Audio.listen()
-        result = ["今天天气"]
-        wordparse=WordParse.Parse()
-        word = wordparse.word_parse(result[0])
+        result = Audio.listen()
+        #result = ["3*2"]
+        wp=WordParse.WordParse()
+        word = wp.word_parse(result[0])
 
         # word[1] is a tuple
         self.findAction(self.driver, word[0], word[1])
