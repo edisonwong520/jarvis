@@ -10,7 +10,7 @@ Jarvis--A very intelligent assistant based voice control
 - 功能4:计算器
 - 功能5:问路导航（高德地图）  
 - 功能6:百度搜索  
-- 功能7:计时器功能（闹钟） 
+- 功能7:计时器功能（闹钟）
 - 功能8:自动关机/重启(也可以自动设定时间)
 
 
@@ -27,6 +27,7 @@ Jarvis--A very intelligent assistant based voice control
 终端输入以下命令，运行Jarvis  
 `python __main__.py`  
 
+  
 然后对着Jarvis发布命令，比如你可以说  
 `贾维斯，来一首易燃易爆炸`  
 `从机场到医院开车怎么走`  
