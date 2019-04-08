@@ -17,6 +17,7 @@ class WordParse():
             result = getattr(self, func_name)(data)
             if result:
                 return result
+        return ()
 
     # sub parse function is belowed
     def parse_ditu(self, data):

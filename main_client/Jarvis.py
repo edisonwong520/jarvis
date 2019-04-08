@@ -5,7 +5,7 @@ import Audio
 import PluginsManager
 import WordParse
 import Chrome
-
+import os
 
 # import Safari
 
@@ -56,8 +56,13 @@ class Jarvis():
         wp=WordParse.WordParse()
         word = wp.word_parse(result[0])
 
-        # word[1] is a tuple
-        self.findAction(self.driver, word[0], word[1])
+        if word==():
+            print("无法识别")
+            os.system("say '无法识别'")
+            return
+        else:
+            # word[1] is a tuple
+            self.findAction(self.driver, word[0], word[1])
 
     def findAction(self, driver, keyword, args):
         if keyword not in self.action_list:
