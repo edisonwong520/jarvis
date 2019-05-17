@@ -1,0 +1,6 @@
+SpeechRecognition==3.8.1
+PyAudio==0.2.11
+arrow==0.13.1
+xpinyin==0.5.6
+regex==2019.3.12
+selenuim==3.141.0
