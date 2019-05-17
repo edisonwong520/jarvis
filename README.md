@@ -24,10 +24,12 @@ Jarvis--A very intelligent assistant based voice control
 - 浏览器： Google Chrome
 
 ## 用法
-终端输入以下命令，运行Jarvis  
-`python __main__.py`  
+获取源码：`git clone git@github.com:edisonwong520/jarvis.git`
+进入源码目录： `cd jarvis`  
+安装依赖： `pip install -r requirements.txt`  
+运行Jarvis：  `python __main__.py`  
 
-  
+
 然后对着Jarvis发布命令，比如你可以说  
 `贾维斯，来一首易燃易爆炸`  
 `从机场到医院开车怎么走`  
@@ -35,7 +37,6 @@ Jarvis--A very intelligent assistant based voice control
 `1分20秒后自动重启`
 
 ## 依赖  
-- geoip2
 - selenium
 - speech_recognition
 - pyaudio
