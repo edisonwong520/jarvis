@@ -24,7 +24,7 @@ Jarvis--A very intelligent assistant based voice control
 - 浏览器： Google Chrome
 
 ## 用法
-获取源码：`git clone git@github.com:edisonwong520/jarvis.git`
+获取源码：`git clone git@github.com:edisonwong520/jarvis.git`  
 进入源码目录： `cd jarvis`  
 安装依赖： `pip install -r requirements.txt`  
 运行Jarvis：  `python __main__.py`  
