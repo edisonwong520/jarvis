@@ -44,6 +44,9 @@ Jarvis--A very intelligent assistant based voice control
 - arrow
 - regex  
 
+## 备注
+打开浏览器部分要用到selenium,目前的解决办法是自动下载对应的驱动，解压，新开一个chrome，然后完成对应的浏览器操作
+
 ## 参考  
 自动下载歌代码参考：https://github.com/ligongcheng/qq_music_downloader  
 计时器功能代码参考：https://github.com/zhanzecheng/Time_NLP   
