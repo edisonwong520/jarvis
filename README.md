@@ -12,7 +12,7 @@ Jarvis--A very intelligent assistant based voice control
 - 功能6:百度搜索  
 - 功能7:计时器功能（闹钟）
 - 功能8:自动关机/重启(也可以自动设定时间)
-- 功能9:百度翻译（中文转英文）
+- 功能9:翻译（中文转英文）
 
 
 其余功能正在开发中，欢迎提建议  
@@ -35,15 +35,8 @@ Jarvis--A very intelligent assistant based voice control
 `贾维斯，来一首易燃易爆炸`  
 `从机场到医院开车怎么走`  
 `计时器1分20秒`  
-`1分20秒后自动重启`
-
-## 依赖  
-- selenium
-- speech_recognition
-- pyaudio
-- xpinyin
-- arrow
-- regex  
+`1分20秒后自动重启`  
+`翻译今天天气不错`
 
 ## 备注
 - 安装PyAudio出错的，需要先在Mac命令行运行brew install portaudio
