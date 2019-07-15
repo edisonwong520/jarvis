@@ -12,6 +12,7 @@ Jarvis--A very intelligent assistant based voice control
 - 功能6:百度搜索  
 - 功能7:计时器功能（闹钟）
 - 功能8:自动关机/重启(也可以自动设定时间)
+- 功能9:百度翻译（中文转英文）
 
 
 其余功能正在开发中，欢迎提建议  

@@ -4,8 +4,9 @@ import re
 import json
 import sys
 
+# please add all the plugin into the func_dict
 func_dict = ["parse_calculator", "parse_song", "parse_weather", "parse_ditu", "parse_baidusearch", "parse_timer",
-             "parse_shutdown", "parse_restart"]
+             "parse_shutdown", "parse_restart", "parse_baidutranslate"]
 
 
 class WordParse():
@@ -18,6 +19,14 @@ class WordParse():
             if result:
                 return result
         return ()
+
+    def parse_baidutranslate(self, data):
+        pat = re.compile(r"^翻译(.*)")
+        if not pat.findall(data):
+            return
+        arg0 = pat.findall(data)[0]
+        # return (pluginname,(word,origin_language,destination_language))
+        return ("baidutranslate", (arg0, "zh", "en"))
 
     # sub parse function is belowed
     def parse_ditu(self, data):
@@ -146,7 +155,7 @@ class WordParse():
         if not flag:
             return ()
 
-        data = data.replace("加", "+").replace("减", "-").replace("乘", "*").replace("除", "/").replace("等于","")
+        data = data.replace("加", "+").replace("减", "-").replace("乘", "*").replace("除", "/").replace("等于", "")
         data = data.replace("一", "1").replace("二", "2").replace("三", "3").replace("四", "4").replace("五", "5")
         data = data.replace("六", "6").replace("七", "7").replace("八", "8").replace("九", "9").replace("零", "0")
         return ("calculator", (data,))

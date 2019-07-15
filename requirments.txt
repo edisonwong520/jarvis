@@ -5,3 +5,5 @@ xpinyin==0.5.6
 regex==2019.3.12
 selenium==3.141.0
 baidu-aip
+PyExecJS==1.5.1
+requests==2.22.0

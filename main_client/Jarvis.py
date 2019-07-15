@@ -51,8 +51,9 @@ class Jarvis():
         #     cmdclient.onecmd("me")
 
         # speack recognize
-        result = Audio.listen()
-        #result = ["3*2"]
+        # result = Audio.listen()
+
+        result = ["翻译我爱你"]
         wp=WordParse.WordParse()
         word = wp.word_parse(result[0])
 
