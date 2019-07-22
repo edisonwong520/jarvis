@@ -16,7 +16,8 @@ Jarvis--A very intelligent assistant based voice control
 
 
 其余功能正在开发中，欢迎提建议  
-英文版也许会开发，windows版本的也许也会开发，目前只适配Mac
+英文版也许会开发，windows版本的也许也会开发，目前只适配Mac  
+未来会与图灵机器人结合起来，深度开发  
 
 
 ## 运行要求
