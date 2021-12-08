@@ -4,8 +4,8 @@ import os
 
 """ 你的 APPID AK SK """
 APP_ID = '15759315'
-API_KEY = 'zgQFArTgCV9V7znq0bEdGrAe'
-SECRET_KEY = 'OsF4m1GsmZHp6IWdfkBXI3WchaD2cqGK'
+API_KEY = 'xx'
+SECRET_KEY = 'xx'
 
 """
 dev_pid
